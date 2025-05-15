@@ -3,7 +3,7 @@ import numpy as np
 from keras.models import load_model
 from music21 import instrument, note, stream, chord
 
-def generate_music(model_path='music_generation_model.keras', pitchnames_path='pitchnames.pkl', sequence_length=100, num_notes=500, start_with=None):
+def generate_music(model_path='../Model/music_generation_model.keras', pitchnames_path='../Model/pitchnames.pkl', sequence_length=100, num_notes=500, start_with=None):
     """Generate a musical sequence using the trained model"""
     
     # Load the model and pitchnames
@@ -83,10 +83,10 @@ def create_midi(prediction_output, filename="generated_music.mid"):
 if __name__ == "__main__":
     # Generate sequence of notes
     prediction_output = generate_music(
-        model_path='music_generation_model.keras', 
-        pitchnames_path='pitchnames.pkl',
+        model_path='../Model/music_generation_model.keras', 
+        pitchnames_path='../Model/pitchnames.pkl',
         num_notes=500  # Number of notes to generate
     )
     
     # Create MIDI file from the generated notes
-    create_midi(prediction_output, "generated_music.mid")
+    create_midi(prediction_output, "../Sample/generated_music.mid")
